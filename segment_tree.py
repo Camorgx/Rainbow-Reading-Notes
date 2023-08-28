@@ -102,6 +102,8 @@ class SumSegmentTree(SegmentTree):
 
     def retrieve(self, upperbound: float) -> int:
         """Find the highest index `i` about upper bound in the tree"""
+        # 将所有的叶子节点记为 n_1, n_2, ..., n_k，这个函数找到第 m 个叶子节点，使得
+        # sum_{i = 1}^m n_i > upperbound 且 sum_{i = 1}^{m - 1} n_i <= upperbound
         # TODO: Check assert case and fix bug
         assert 0 <= upperbound <= self.sum() + 1e-5, "upperbound: {}".format(upperbound)
 
